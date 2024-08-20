@@ -1,0 +1,21 @@
+{
+  "name": "minsychinese",
+  "version": "1.0.0",
+  "description": "This Website for Learning and Teaching English. Now, it is only available for computers.",
+  "main": "index.js",
+  "scripts": {
+    "client": "npm run --prefix client dev",
+    "server": "npm run --prefix server start:dev",
+    "setup": "npm --prefix frontend install && npm --prefix backend install",
+    "app": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react-icons": "^5.0.1"
+  },
+  "devDependencies": {
+    "prettier": "3.2.5"
+  }
+}
