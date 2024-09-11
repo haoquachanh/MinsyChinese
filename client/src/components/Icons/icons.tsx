@@ -1,4 +1,4 @@
-import { SVGProps } from 'react';
+import { SVGProps } from "react";
 
 // Icons taken from: https://simpleicons.org/
 // To add a new icon, add a new function here and add it to components in social-icons/index.tsx
@@ -156,6 +156,44 @@ export function QuestionNoBox(svgProps: SVGProps<SVGSVGElement>) {
   return (
     <svg {...svgProps} viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
       <path d="M4.475 5.458c-.284 0-.514-.237-.47-.517C4.28 3.24 5.576 2 7.825 2c2.25 0 3.767 1.36 3.767 3.215 0 1.344-.665 2.288-1.79 2.973-1.1.659-1.414 1.118-1.414 2.01v.03a.5.5 0 0 1-.5.5h-.77a.5.5 0 0 1-.5-.495l-.003-.2c-.043-1.221.477-2.001 1.645-2.712 1.03-.632 1.397-1.135 1.397-2.028 0-.979-.758-1.698-1.926-1.698-1.009 0-1.71.529-1.938 1.402-.066.254-.278.461-.54.461h-.777ZM7.496 14c.622 0 1.095-.474 1.095-1.09 0-.618-.473-1.092-1.095-1.092-.606 0-1.087.474-1.087 1.091S6.89 14 7.496 14"></path>
+    </svg>
+  );
+}
+export function Exit(svgProps: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      height="24px"
+      version="1.1"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+    >
+      <title />
+      <desc />
+      <g
+        fill="none"
+        // fill-rule="evenodd"
+        id="Action-/-10---Action,-cancel,-circle,-close,-delete,-exit,-remove,-button,-x-icon"
+        stroke="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1"
+      >
+        <circle
+          cx="12"
+          cy="12"
+          id="Path"
+          r="10"
+          stroke={svgProps.color}
+          stroke-width="2"
+        />
+        <path
+          d="M16.0710678,7.92893219 L7.92893219,16.0710678 M16.0710678,16.0710678 L7.92893219,7.92893219"
+          id="Path"
+          stroke={svgProps.color}
+          stroke-width="2"
+        />
+      </g>
     </svg>
   );
 }

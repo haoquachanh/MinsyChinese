@@ -22,13 +22,13 @@ export const navLinks: NavLinks[] = [
   {
     name: "Đề thi HSK",
     icon: "about",
-    href: "/HSKexam",
+    href: "/examination",
   },
-  {
-    name: "Luyện tập",
-    icon: "about",
-    href: "/practice",
-  },
+  // {
+  //   name: "Luyện tập",
+  //   icon: "about",
+  //   href: "/practice",
+  // },
 ];
 
 export const socialLinks = {

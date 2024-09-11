@@ -4,6 +4,7 @@ import NavBar from "../Navbar/NavBar";
 import SideBar from "../Sidebar/SideBar";
 import { ThemeContext } from "@/contexts/ThemeContext";
 import FeedbackCom from "../Feedback/FeedbackCom";
+import Footer from "../Footer/Footer";
 type Props = {
   children: ReactNode;
 };
@@ -12,11 +13,10 @@ export default function AppLayout({ children }: Props) {
 
   return (
     <>
-      <body className="w-full lg:h-full" data-theme={theme}>
-        <div className="w-full max-w-screen">
-          <NavBar />
-          <div className="flex lg:px-20 w-full h-full">{children}</div>
-        </div>
+      <body className="w-full min-h-screen relative" data-theme={theme}>
+        <NavBar />
+        <main className="flex lg:px-20 w-full bg-base-100">{children}</main>
+        {/* <Footer /> */}
       </body>
     </>
   );

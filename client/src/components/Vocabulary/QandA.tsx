@@ -1,5 +1,5 @@
 // import { useState } from 'react';
-import { Icon } from '../Icons';
+import { Icon } from "../Icons";
 
 type QandA = {
   topic: number;
@@ -8,50 +8,50 @@ type QandA = {
 };
 export default function QandA() {
   const topics = [
-    { index: 1, content: 'How it work' },
-    { index: 2, content: 'What is Jetflix' },
-    { index: 3, content: 'What is Jetflix' },
+    { index: 1, content: "How it work" },
+    { index: 2, content: "What is Jetflix" },
+    { index: 3, content: "What is Jetflix" },
   ];
   const listPosts: QandA[] = [
     {
       topic: 1,
-      question: 'New movie is released ?',
-      answer: 'Click the button to watch on Jetflix app.',
+      question: "New movie is released ?",
+      answer: "Click the button to watch on Jetflix app.",
     },
     {
       topic: 1,
-      question: 'Another question ?',
-      answer: 'Click the button to watch on Jetflix app.',
+      question: "Another question ?",
+      answer: "Click the button to watch on Jetflix app.",
     },
     {
       topic: 2,
-      question: 'New movie is released ?',
-      answer: 'Click the button to watch on Jetflix app.',
+      question: "New movie is released ?",
+      answer: "Click the button to watch on Jetflix app.",
     },
     {
       topic: 2,
-      question: 'Another question ?',
-      answer: 'Click the button to watch on Jetflix app.',
+      question: "Another question ?",
+      answer: "Click the button to watch on Jetflix app.",
     },
     {
       topic: 1,
-      question: 'New movie is released ?',
-      answer: 'Click the button to watch on Jetflix app.',
+      question: "New movie is released ?",
+      answer: "Click the button to watch on Jetflix app.",
     },
     {
       topic: 1,
-      question: 'Another question ?',
-      answer: 'Click the button to watch on Jetflix app.',
+      question: "Another question ?",
+      answer: "Click the button to watch on Jetflix app.",
     },
     {
       topic: 3,
-      question: 'New movie is released ?',
-      answer: 'Click the button to watch on Jetflix app.',
+      question: "New movie is released ?",
+      answer: "Click the button to watch on Jetflix app.",
     },
     {
       topic: 4,
-      question: 'Another question ?',
-      answer: 'Click the button to watch on Jetflix app.',
+      question: "Another question ?",
+      answer: "Click the button to watch on Jetflix app.",
     },
   ];
 
@@ -69,7 +69,10 @@ export default function QandA() {
         </div>
       </div>
       {topics.map((topic, index) => (
-        <div className="collapse collapse-arrow bg-base-200 mb-8 overflow-hidden" key={index}>
+        <div
+          className="collapse collapse-arrow bg-base-200 mb-8 overflow-hidden"
+          key={index}
+        >
           <input type="checkbox" className="peer" />
           <div className="collapse-title ">{topic.content}</div>
           <div className="collapse-content overflow-y-auto">

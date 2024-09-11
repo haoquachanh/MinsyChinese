@@ -1,5 +1,5 @@
-import Community from "@/components/Vocabulary/Vocabulary";
+import MinCourse from "@/components/MinCourse/ProfileContent";
 
 export default async function HomePage() {
-  return <Community />;
+  return <MinCourse />;
 }

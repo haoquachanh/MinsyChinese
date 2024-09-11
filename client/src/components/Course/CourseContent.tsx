@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import BuyStep from "./BuyStep";
+import BuyStep from "./HSKCourse";
+import Link from "next/link";
 
 type Package = {
   name: string;
@@ -104,7 +105,11 @@ export default function CourseContent() {
               </div>
             </div>
             <div className="flex justify-center pb-6">
-              <button className="btn btn-outline border-2 !h-3">Vào học</button>
+              <Link href={`/courses/hsk${index}`}>
+                <button className="btn btn-outline border-2 !h-3">
+                  Vào học
+                </button>
+              </Link>
             </div>
           </div>
         ))}

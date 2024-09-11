@@ -17,7 +17,8 @@ import Test, {
   CloseBox,
   Tick,
   QuestionNoBox,
-} from './icons';
+  Exit,
+} from "./icons";
 
 const componentsSocialIcons = {
   mail: Mail,
@@ -43,6 +44,7 @@ const components = {
   closebox: CloseBox,
   tick: Tick,
   questionnobox: QuestionNoBox,
+  exit: Exit,
 };
 
 type SocialIconProps = {
@@ -59,19 +61,38 @@ type Icons = {
 };
 
 export const SocialIcon = ({ kind, href, size = 8 }: SocialIconProps) => {
-  if (!href || (kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href))) return null;
+  if (
+    !href ||
+    (kind === "mail" &&
+      !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href))
+  )
+    return null;
 
   const SocialSvg = componentsSocialIcons[kind];
 
   return (
-    <a className="text-sm transition hover:text-gray-600" target="_blank" rel="noopener noreferrer" href={href}>
+    <a
+      className="text-sm transition hover:text-gray-600"
+      target="_blank"
+      rel="noopener noreferrer"
+      href={href}
+    >
       <span className="sr-only">{kind}</span>
-      <SocialSvg className={`fill-current hover:text-primary-500 h-${size} w-${size}`} />
+      <SocialSvg
+        className={`fill-current hover:text-primary-500 h-${size} w-${size}`}
+      />
     </a>
   );
 };
 
 export const Icon = ({ kind, href, size = 12, color }: Icons) => {
   const IconSvg = components[kind];
-  return <IconSvg className={`fill-current`} height={size} width={size} color={color} />;
+  return (
+    <IconSvg
+      className={`fill-current`}
+      height={size}
+      width={size}
+      color={color}
+    />
+  );
 };
