@@ -32,12 +32,12 @@ export default function LoginContent() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center w-full">
+    <div className="flex flex-col justify-center items-center w-full h-full">
       <form
         onSubmit={handleSubmit}
         className="relative flex flex-col justify-center items-center space-y-8 w-full max-w-lg"
       >
-        <h1 className="text-2xl">Sign in to Laten</h1>
+        <h1 className="text-2xl">Sign in</h1>
         <label className="flex items-center gap-2 input-bordered w-11/12 input">
           <input type="text" name="email" placeholder="Email" required />
         </label>
