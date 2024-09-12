@@ -1,5 +1,4 @@
 "use client";
-import FeedbackCom from "../Feedback/FeedbackCom";
 
 /* eslint-disable @next/next/no-img-element */
 export default function Footer() {
