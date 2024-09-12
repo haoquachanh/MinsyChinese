@@ -1,10 +1,7 @@
 "use client";
 import { ReactNode, useContext } from "react";
 import NavBar from "../Navbar/NavBar";
-import SideBar from "../Sidebar/SideBar";
 import { ThemeContext } from "@/contexts/ThemeContext";
-import Footer from "../Footer/Footer";
-import { ClassNames } from "@emotion/react";
 type Props = {
   children: ReactNode;
 };
