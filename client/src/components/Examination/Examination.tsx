@@ -99,7 +99,7 @@ export default function ExaminationContent() {
           <div className="flex flex-row justify-center space-x-6">
             <h1 className="text-center content-center">Chọn loại bài thi</h1>
             <select
-              defaultValue={0}
+              // defaultValue={0}
               className="select select-error w-1/4 md:w-1/5 max-w-xs !min-h-0 !h-8"
               value={type}
               onChange={(e) => setType(e.target.value)}

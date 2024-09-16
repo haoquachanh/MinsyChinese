@@ -175,9 +175,9 @@ export function Exit(svgProps: SVGProps<SVGSVGElement>) {
         // fill-rule="evenodd"
         id="Action-/-10---Action,-cancel,-circle,-close,-delete,-exit,-remove,-button,-x-icon"
         stroke="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1"
       >
         <circle
           cx="12"
@@ -185,13 +185,13 @@ export function Exit(svgProps: SVGProps<SVGSVGElement>) {
           id="Path"
           r="10"
           stroke={svgProps.color}
-          stroke-width="2"
+          strokeWidth="2"
         />
         <path
           d="M16.0710678,7.92893219 L7.92893219,16.0710678 M16.0710678,16.0710678 L7.92893219,7.92893219"
           id="Path"
           stroke={svgProps.color}
-          stroke-width="2"
+          strokeWidth="2"
         />
       </g>
     </svg>
