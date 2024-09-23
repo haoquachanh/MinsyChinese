@@ -14,7 +14,7 @@ export default function AppLayout({ children }: Props) {
         <div className="relative z-50">
           <NavBar />
         </div>
-        <main className="flex lg:px-20 w-full bg-base-100 relative z-10">
+        <main className="flex lg:px-20 w-full bg-base-100 relative z-10 justify-center">
           {children}
         </main>
         {/* <Footer /> */}

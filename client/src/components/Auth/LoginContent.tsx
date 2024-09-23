@@ -32,7 +32,7 @@ export default function LoginContent() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center w-full h-full">
+    <div className="flex flex-col justify-center items-center w-full h-full pt-12">
       <form
         onSubmit={handleSubmit}
         className="relative flex flex-col justify-center items-center space-y-8 w-full max-w-lg"

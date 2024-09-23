@@ -1,4 +1,5 @@
 import {
+  ConflictException,
   Injectable,
   NotFoundException,
   UnauthorizedException,
@@ -19,8 +20,14 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
   async register(user: UserEntity): Promise<UserEntity> {
+    const exist = await this.userRepository.findOneBy({
+      email: user.email,
+    });
+    console.log(exist);
+    if (exist) throw new ConflictException();
     const salt = await bcrypt.genSalt();
     const hash = await bcrypt.hash(user.password, salt);
+    user.avt = Math.floor(Math.random() * 12).toString();
     user.password = hash;
     return await this.userRepository.save(user);
   }
@@ -42,6 +49,8 @@ export class AuthService {
     if (!foundUser) throw new NotFoundException();
     const payload = {
       email: foundUser.email,
+      fullname: foundUser.fullname,
+      avt: foundUser.avt,
       id: foundUser.id,
       role: foundUser.role,
     };

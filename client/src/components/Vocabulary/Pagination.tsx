@@ -15,24 +15,24 @@ export default function Pagination({ length, currentPage, setPage }: Props) {
         «
       </button>
       <button
-        className={`join-item btn ${0 == currentPage ? "link bg-base" : "bg-inherit"}`}
+        className={`join-item btn w-12 ${0 == currentPage ? "link bg-base" : "bg-inherit"}`}
         onClick={() => setPage(0)}
       >
         1
       </button>
       <button
-        className={`join-item btn bg-inherit hover:bg-inherit ${length > 6 && currentPage > 3 ? "" : "hidden"}`}
+        className={`join-item btn bg-inherit hover:bg-inherit w-12 ${length > 6 && currentPage > 3 ? "" : "hidden"}`}
       >
         ...
       </button>
       <button
-        className={`join-item btn bg-inherit hover:bg-inherit ${currentPage === length - 1 || currentPage == length - 2 ? "" : "hidden"}`}
+        className={`join-item btn bg-inherit hover:bg-inherit w-12 ${currentPage === length - 1 || currentPage == length - 2 ? "" : "hidden"}`}
         onClick={() => setPage(length - 5)}
       >
         {length - 4}
       </button>
       <button
-        className={`join-item btn bg-inherit hover:bg-inherit ${currentPage === length - 1 ? "" : "hidden"}`}
+        className={`join-item btn bg-inherit hover:bg-inherit w-12 ${currentPage === length - 1 ? "" : "hidden"}`}
         onClick={() => setPage(length - 4)}
       >
         {length - 3}
@@ -45,7 +45,7 @@ export default function Pagination({ length, currentPage, setPage }: Props) {
           index < length - 1 && (
             <button
               key={index}
-              className={`join-item btn ${index == currentPage ? "link bg-base" : "bg-inherit"}`}
+              className={`join-item btn ${index == currentPage ? "link bg-base" : "bg-inherit"} w-12`}
               onClick={() => setPage(index)}
             >
               {index + 1}
@@ -53,24 +53,24 @@ export default function Pagination({ length, currentPage, setPage }: Props) {
           )
       )}
       <button
-        className={`join-item btn bg-inherit hover:bg-inherit ${currentPage == 0 ? "" : "hidden"}`}
+        className={`join-item btn bg-inherit hover:bg-inherit w-12 ${currentPage == 0 ? "" : "hidden"}`}
         onClick={() => setPage(3)}
       >
         4
       </button>
       <button
-        className={`join-item btn bg-inherit hover:bg-inherit ${currentPage == 0 || currentPage == 1 ? "" : "hidden"}`}
+        className={`join-item btn bg-inherit hover:bg-inherit w-12 ${currentPage == 0 || currentPage == 1 ? "" : "hidden"}`}
         onClick={() => setPage(4)}
       >
         5
       </button>
       <button
-        className={`join-item btn bg-inherit hover:bg-inherit ${length > 6 && length - currentPage > 4 ? "" : "hidden"}`}
+        className={`join-item btn bg-inherit hover:bg-inherit w-12 ${length > 6 && length - currentPage > 4 ? "" : "hidden"}`}
       >
         ...
       </button>
       <button
-        className={`join-item btn ${length - 1 == currentPage ? "link bg-base" : "bg-inherit"}`}
+        className={`join-item btn w-12 ${length - 1 == currentPage ? "link bg-base" : "bg-inherit"}`}
         onClick={() => setPage(length - 1)}
       >
         {length}

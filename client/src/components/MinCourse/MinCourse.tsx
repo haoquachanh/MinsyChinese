@@ -31,7 +31,7 @@ export default function MinCourse() {
     getInfo();
   }, [access_token]);
   return (
-    <div>
+    <div className="flex justify-center al">
       <div role="tablist" className="tabs tabs-bordered mt-12">
         <input
           type="radio"

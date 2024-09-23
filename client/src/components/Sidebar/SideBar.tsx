@@ -28,7 +28,7 @@ export default function SideBar() {
             data-svelte-h="svelte-nce89e"
           >
             <img
-              src="/LaTEn.png"
+              src="/Minsy.png"
               className="!py-1 w-auto h-24"
               alt="Logo"
             ></img>

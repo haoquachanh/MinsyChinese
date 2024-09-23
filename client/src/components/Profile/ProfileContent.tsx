@@ -8,7 +8,7 @@ import { getApi } from "@/utils/axiosCofig";
 interface UserData {
   fullname?: string;
   email?: string;
-  avatar?: string;
+  avt?: string;
   role?: string;
   id?: string;
   created?: string;
@@ -31,7 +31,7 @@ export default function ProfileContent() {
     getInfo();
   }, [access_token]);
   return (
-    <div>
+    <div className="flex justify-center flex-col w-4/5 mt-10">
       <div className="card bg-base-100 from-base-200 not-prose outline-base-content/5 relative overflow-hidden bg-gradient-to-b font-sans shadow-lg outline -outline-offset-1 md:flex-row-reverse">
         <div className="bg-accent -left-1/5 pointer-events-none absolute bottom-[-50%] aspect-square w-3/4 -translate-x-1/2 rounded-full opacity-20 blur-3xl"></div>{" "}
         <div className="bg-primary pointer-events-none absolute bottom-[-120%] left-1/2 aspect-square w-full -translate-x-1/2 rounded-full opacity-20 blur-3xl"></div>{" "}
@@ -40,12 +40,14 @@ export default function ProfileContent() {
           <div className="flex flex-row items-center justify-center space-x-20">
             <div className="avatar">
               <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                <img src={`/images/avt${userData.avt}.png`} />
               </div>
             </div>
             <div className="ml-5">
-              <h1 className="card-title">{userData.fullname}</h1>
-              <p>Web Developer</p>
+              <h1 className="card-title">
+                {userData.fullname ? userData.fullname : "User"}
+              </h1>
+              {/* <p>Web Developer</p> */}
             </div>
           </div>
         </div>
@@ -74,8 +76,15 @@ export default function ProfileContent() {
           aria-label="Setting"
         />
         <div role="tabpanel" className="tab-content p-10">
-          <button className="btn btn-warning">Change password</button>
-          <button className="btn btn-error">Delete accout</button>
+          <button className="btn btn-warning" disabled>
+            Change Information
+          </button>
+          <button className="btn btn-warning" disabled>
+            Change password
+          </button>
+          <button className="btn btn-error" disabled>
+            Delete accout
+          </button>
         </div>
 
         <input
