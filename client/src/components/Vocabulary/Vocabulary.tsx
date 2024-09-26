@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Standard from "./Standard";
-import QandA from "./QandA";
+import Personal from "./Personal";
 
 export default function Vocabulary() {
   const [topic, setTopic] = useState("1");
@@ -23,7 +23,7 @@ export default function Vocabulary() {
           </button>
         </div>
         <div className="flex p-5 w-full overflow-auto justify-center">
-          {topic === "1" ? <Standard /> : <QandA />}
+          {topic === "1" ? <Standard /> : <Personal />}
         </div>
       </div>
     </>

@@ -41,12 +41,14 @@ export default function NavBar() {
             <div className="flex-row ">
               <ul className="hidden lg:flex">
                 {navLinks.map((item, index) => (
-                  <li key={index} className="ml-2 btn btn-ghost">
+                  <li key={index} className="mr-3 btn btn-ghost p-0">
                     <Link
                       href={item.href}
-                      className="justify-center items-center"
+                      className="flex justify-center items-center w-full h-full p-5"
                     >
-                      <span className="m-1 mr-3">{item.name}</span>
+                      <span className="justify-center items-center">
+                        {item.name}
+                      </span>
                     </Link>
                   </li>
                 ))}

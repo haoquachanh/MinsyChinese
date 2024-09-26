@@ -197,3 +197,42 @@ export function Exit(svgProps: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function Heart(svgProps: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      fill="none"
+      height="24"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+    </svg>
+  );
+}
+
+export function HeartFill(svgProps: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      height="24"
+      version="1.1"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+      // xmlns:cc="http://creativecommons.org/ns#"
+      // xmlns:dc="http://purl.org/dc/elements/1.1/"
+      // xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    >
+      <g transform="translate(0 -1028.4)">
+        <path
+          d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z"
+          fill="#c0392b"
+        />
+      </g>
+    </svg>
+  );
+}

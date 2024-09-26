@@ -143,7 +143,22 @@ export default function Standard() {
                 <td>{word.pinyin}</td>
                 <td>{word.mean}</td>
                 <th>
-                  <button className="btn btn-ghost btn-xs">details</button>
+                  {true ? (
+                    <button
+                      className="tooltip"
+                      data-tip={`Thêm vào danh sách yêu thích`}
+                    >
+                      {/* Thêm vào dsach yêu thích */}
+                      <Icon kind="heart"></Icon>
+                    </button>
+                  ) : (
+                    <button
+                      className="tooltip"
+                      data-tip={`Xóa khỏi danh sách yêu thích`}
+                    >
+                      <Icon kind="heartfill"></Icon>
+                    </button>
+                  )}
                 </th>
               </tr>
             ))}

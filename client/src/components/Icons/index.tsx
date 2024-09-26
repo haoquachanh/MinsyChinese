@@ -18,6 +18,8 @@ import Test, {
   Tick,
   QuestionNoBox,
   Exit,
+  Heart,
+  HeartFill,
 } from "./icons";
 
 const componentsSocialIcons = {
@@ -45,6 +47,8 @@ const components = {
   tick: Tick,
   questionnobox: QuestionNoBox,
   exit: Exit,
+  heart: Heart,
+  heartfill: HeartFill,
 };
 
 type SocialIconProps = {
