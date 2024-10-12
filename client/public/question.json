@@ -84,18 +84,6 @@
     "difficulty": "HSK1"
   },
   {
-    "id": 8,
-    "type": "listening",
-    "question": "Do you know ...",
-    "img":"",
-    "audio":"",
-    "answers": [
-      "A","B","C","D"
-    ],
-    "key": "A",
-    "difficulty": "HSK1"
-  },
-  {
     "id": 9,
     "type": "listening",
     "question": "Do you know ...",

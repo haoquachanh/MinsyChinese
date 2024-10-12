@@ -9,7 +9,7 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
   app.useGlobalPipes(new ValidationPipe());
   const options = new DocumentBuilder()
-    .setTitle('Basic-crud')
+    .setTitle('Minsy-chinese')
     .setDescription('API docs')
     .setVersion('1.0')
     .addBearerAuth()

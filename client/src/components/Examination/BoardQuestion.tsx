@@ -6,7 +6,7 @@ type Props = {
 };
 export default function BoardQuestion({ numOfQuestions }: Props) {
   const [show, setShow] = useState(true);
-  const { answers, numberOfQuestions, changePage } =
+  const { page, answers, numberOfQuestions, changePage } =
     useContext(ExaminationContext);
   const qs = Array.from({ length: numOfQuestions });
   return (
@@ -26,7 +26,7 @@ export default function BoardQuestion({ numOfQuestions }: Props) {
                 onClick={() =>
                   changePage(Math.floor(index / numberOfQuestions))
                 }
-                className={`kbd ${answers[index + 1] ? "bg-primary" : ""} hover:scale-105`}
+                className={`kbd ${answers[index + 1] ? "bg-primary" : ""} ${page == index ? "underline" : ""} hover:scale-105`}
               >
                 {index + 1}
               </button>

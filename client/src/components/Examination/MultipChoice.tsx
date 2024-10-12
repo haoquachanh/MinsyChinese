@@ -1,18 +1,35 @@
 // File: Questions.jsx
 "use client";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Question } from "./Examination";
 import { ExaminationContext } from "@/contexts/ExaminationContext";
 
 type Props = {
-  questions: Question[];
+  questions?: Question[];
 };
 
 export default function MultipChoice({ questions }: Props) {
   // const [answers, setAnswers] = useState<{ [key: string]: string }>({});
   const { page, numberOfQuestions, answers, handleChange } =
     useContext(ExaminationContext);
-
+  const [theQuestions, setTheQuestions] = useState<Question[]>([
+    {
+      id: 1,
+      type: "reading",
+      question: "Do you know ...",
+      img: "",
+      audio: "",
+      answers: ["A", "B", "C", "D"],
+      key: "A",
+      difficulty: "HSK1",
+    },
+  ]);
+  useEffect(() => {
+    // Fetch data from the JSON file
+    fetch("/question.json")
+      .then((response) => response.json())
+      .then((data) => setTheQuestions(data));
+  });
   // const handleChange = (event: React.ChangeEvent<HTMLInputElement>, key: string) => {
   //   setAnswers({
   //     ...answers,
@@ -21,7 +38,7 @@ export default function MultipChoice({ questions }: Props) {
   // };
 
   return (
-    <div className="flex flex-col space-y-5 w-full lg:w-[95%] h-full justify-start my-8">
+    <div className="flex flex-1 flex-col space-y-5 w-full lg:w-[95%] h-full justify-start my-8">
       {questions.map(
         (item, index) =>
           index >= page * numberOfQuestions &&
