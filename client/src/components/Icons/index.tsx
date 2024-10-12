@@ -20,6 +20,7 @@ import Test, {
   Exit,
   Heart,
   HeartFill,
+  Flashcard,
 } from "./icons";
 
 const componentsSocialIcons = {
@@ -36,6 +37,7 @@ const componentsSocialIcons = {
 
 //add the new icon which is defined in ./icons
 const components = {
+  "": "",
   question: Question,
   account: Account,
   about: About,
@@ -49,6 +51,7 @@ const components = {
   exit: Exit,
   heart: Heart,
   heartfill: HeartFill,
+  flashcard: Flashcard,
 };
 
 type SocialIconProps = {

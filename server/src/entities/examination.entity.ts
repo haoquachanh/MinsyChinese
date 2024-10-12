@@ -12,12 +12,13 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   ManyToMany,
+  JoinTable,
 } from 'typeorm';
 import { UserRole } from 'src/common/typings/user-role.enum';
-import { Examination } from './examination.entity';
+import { User } from './user.entity';
 
 @Entity('users')
-export class User {
+export class Examination {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -64,6 +65,7 @@ export class User {
   @UpdateDateColumn()
   updated: Date;
 
-  @ManyToMany(() => Examination, (question) => question.users)
-  examinations: Examination[];
+  @ManyToMany(() => User, (user) => user.examinations)
+  @JoinTable()
+  users: User[];
 }

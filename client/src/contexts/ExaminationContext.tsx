@@ -1,5 +1,5 @@
-'use client';
-import { createContext, ReactNode, useEffect, useState } from 'react';
+"use client";
+import { createContext, ReactNode, useEffect, useState } from "react";
 
 interface ExamContextProps {
   time: number;
@@ -7,7 +7,10 @@ interface ExamContextProps {
   second: number;
   numberOfQuestions: number;
   answers: { [key: string]: string };
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>, key: string) => void;
+  handleChange: (
+    event: React.ChangeEvent<HTMLInputElement>,
+    key: string
+  ) => void;
   changePage: (page: number) => void;
   changeTime: (time: number) => void;
   init: (time: number) => void;
@@ -17,7 +20,7 @@ interface ExamContextProps {
 const ExaminationContext = createContext<ExamContextProps>({
   time: 15,
   second: 900,
-  numberOfQuestions: 2,
+  numberOfQuestions: 1,
   page: 0,
   changePage: () => {},
   answers: {},
@@ -35,14 +38,17 @@ interface Props {
 function ExaminationProvider({ children }: Props) {
   const [answers, setAnswers] = useState<{ [key: string]: string }>({});
   const [page, setPage] = useState(0);
-  const [numberOfQuestions, setNumberOfQuestions] = useState(2);
+  const [numberOfQuestions, setNumberOfQuestions] = useState(1);
   const [time, setTime] = useState(15);
   const [second, setSecond] = useState(900);
   const handleChangePage = (page: number) => {
     setPage(page);
   };
   // Update handleChange to use the correct type
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>, key: string) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    key: string
+  ) => {
     setAnswers({
       ...answers,
       [key]: event.target.value,
@@ -81,7 +87,11 @@ function ExaminationProvider({ children }: Props) {
     changePage: handleChangePage,
   };
 
-  return <ExaminationContext.Provider value={value}>{children}</ExaminationContext.Provider>;
+  return (
+    <ExaminationContext.Provider value={value}>
+      {children}
+    </ExaminationContext.Provider>
+  );
 }
 
 export { ExaminationContext, ExaminationProvider };

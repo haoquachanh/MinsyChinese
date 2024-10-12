@@ -19,11 +19,11 @@ import { ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
-import { User } from 'src/common/decorators/user.decorator';
+import { UserDecorator } from 'src/common/decorators/user.decorator';
 import { Roles } from 'src/common/decorators/roles.decorator';
 import { RolesGuard } from 'src/common/security/role.guard';
 import { UserRole } from 'src/common/typings/user-role.enum';
-import { UserEntity } from 'src/entities/user.entity';
+import { User } from 'src/entities/user.entity';
 // import { JwtAuthGuard } from '@common/security/jwt.auth.guard';
 // import { RolesGuard } from '@common/security/role.guard';
 
@@ -34,7 +34,7 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
   @Get('/profile')
   @UseGuards(AuthGuard('jwt'))
-  async getProfile(@User() user: { id: number }): Promise<any> {
+  async getProfile(@UserDecorator() user: { id: number }): Promise<any> {
     return this.userService.getUserById(user.id);
   }
   @Get()
@@ -49,13 +49,13 @@ export class UserController {
   @UseGuards(AuthGuard('jwt'))
   @Roles(UserRole.ADMIN)
   @UseGuards(RolesGuard)
-  async getById(@Param('id') id: string): Promise<UserEntity> {
+  async getById(@Param('id') id: string): Promise<User> {
     return this.userService.getUserById(id);
   }
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  async create(@Body() user: CreateUserDto): Promise<UserEntity> {
+  async create(@Body() user: CreateUserDto): Promise<User> {
     return this.userService.create(user);
   }
 

@@ -5,38 +5,38 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
-import { User } from 'src/entities/user.entity';
-import { CreateUserDto } from './dtos/create-user.dto';
+import { CreateUserDto } from './dtos/create-exam.dto';
 import * as bcrypt from 'bcrypt';
-import { UpdateUserDto } from './dtos/update-user.dto';
+import { UpdateUserDto } from './dtos/update-exam.dto';
+import { Examination } from 'src/entities/examination.entity';
 
 @Injectable()
-export class UserService {
+export class ExamService {
   constructor(
-    @InjectRepository(User)
-    private readonly userRepository: Repository<User>,
+    @InjectRepository(Examination)
+    private readonly examRepository: Repository<Examination>,
   ) {}
 
-  async getAllUsers(): Promise<User[]> {
-    return await this.userRepository.find();
+  async getAllUsers(): Promise<Examination[]> {
+    return await this.examRepository.find();
   }
 
-  async getUserById(id: string | number): Promise<User> {
+  async getUserById(id: string | number): Promise<Examination> {
     const theId = typeof id === 'string' ? parseInt(id) : id;
     if (!theId) {
       throw new UnprocessableEntityException({
         status: HttpStatus.BAD_REQUEST,
         errors: {
-          id: 'userIdMustBeNumber',
+          id: 'examIdMustBeNumber',
         },
       });
     }
-    const theUser = await this.userRepository.findOneBy({ id: theId });
+    const theUser = await this.examRepository.findOneBy({ id: theId });
     if (!theUser) {
       throw new UnprocessableEntityException({
         status: HttpStatus.NOT_FOUND,
         errors: {
-          id: 'userNotFound',
+          id: 'examNotFound',
         },
       });
     }
@@ -44,13 +44,13 @@ export class UserService {
     return theUser;
   }
 
-  async create(user: CreateUserDto): Promise<User> {
-    const clonedPayload = { ...user };
+  async create(exam: CreateUserDto): Promise<Examination> {
+    const clonedPayload = { ...exam };
     if (clonedPayload.email) {
-      const userObject = await this.userRepository.findOne({
+      const examObject = await this.examRepository.findOne({
         where: { email: clonedPayload.email },
       });
-      if (userObject) {
+      if (examObject) {
         throw new UnprocessableEntityException({
           status: HttpStatus.UNPROCESSABLE_ENTITY,
           errors: {
@@ -64,26 +64,26 @@ export class UserService {
       clonedPayload.password = await bcrypt.hash(clonedPayload.password, salt);
     }
 
-    const result = await this.userRepository.save(clonedPayload);
+    const result = await this.examRepository.save(clonedPayload);
     // delete result.password;
     return result;
   }
 
-  async update(id: string, user: UpdateUserDto): Promise<UpdateResult> {
+  async update(id: string, exam: UpdateUserDto): Promise<UpdateResult> {
     const theId = parseInt(id);
-    const theUser = await this.userRepository.findOneBy({ id: theId });
+    const theUser = await this.examRepository.findOneBy({ id: theId });
     if (!theUser) {
       throw new UnprocessableEntityException({
         status: HttpStatus.NOT_FOUND,
         errors: {
-          id: 'userNotFound',
+          id: 'examNotFound',
         },
       });
     }
-    return await this.userRepository.update(id, user);
+    return await this.examRepository.update(id, exam);
   }
 
   async delete(id: string): Promise<DeleteResult> {
-    return await this.userRepository.delete(id);
+    return await this.examRepository.delete(id);
   }
 }

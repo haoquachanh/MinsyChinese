@@ -7,13 +7,13 @@ import { jwtConfig } from 'src/common/config/jwt.config';
 import { PassportModule } from '@nestjs/passport';
 import { LocalStrategy } from 'src/common/security/local.strategy';
 import { JwtStrategy } from 'src/common/security/jwt.strategy';
-import { UserEntity } from 'src/entities/user.entity';
+import { User } from 'src/entities/user.entity';
 
 @Module({
   imports: [
     PassportModule,
     JwtModule.registerAsync(jwtConfig),
-    TypeOrmModule.forFeature([UserEntity]),
+    TypeOrmModule.forFeature([User]),
   ],
   providers: [AuthService, LocalStrategy, JwtStrategy],
   controllers: [AuthController],

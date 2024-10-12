@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { UserEntity } from 'src/entities/user.entity';
+import { User } from 'src/entities/user.entity';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { LoginDto } from './dtos/login.dto';
@@ -15,11 +15,11 @@ import { LoginDto } from './dtos/login.dto';
 @Injectable()
 export class AuthService {
   constructor(
-    @InjectRepository(UserEntity)
-    private readonly userRepository: Repository<UserEntity>,
+    @InjectRepository(User)
+    private readonly userRepository: Repository<User>,
     private readonly jwtService: JwtService,
   ) {}
-  async register(user: UserEntity): Promise<UserEntity> {
+  async register(user: User): Promise<User> {
     const exist = await this.userRepository.findOneBy({
       email: user.email,
     });
@@ -31,7 +31,7 @@ export class AuthService {
     user.password = hash;
     return await this.userRepository.save(user);
   }
-  async validateUser(credentials: LoginDto): Promise<UserEntity> {
+  async validateUser(credentials: LoginDto): Promise<User> {
     const foundUser = await this.userRepository.findOneBy({
       email: credentials.email,
     });

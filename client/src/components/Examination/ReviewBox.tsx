@@ -1,8 +1,8 @@
-import { ExaminationContext } from '@/contexts/ExaminationContext';
-import { useContext } from 'react';
-import BoardQuestion from './BoardQuestion';
-import Countdown from './CountDown';
-import { Icon } from '../Icons';
+import { ExaminationContext } from "@/contexts/ExaminationContext";
+import { useContext } from "react";
+import BoardQuestion from "./BoardQuestion";
+import Countdown from "./CountDown";
+import { Icon } from "../Icons";
 type Props = {
   numOfQuestions: number;
   changePage?: (page: number) => void;
@@ -10,7 +10,11 @@ type Props = {
   endExam: () => void;
 };
 
-export default function ReviewBox({ numOfQuestions, cancelReview, endExam }: Props) {
+export default function ReviewBox({
+  numOfQuestions,
+  cancelReview,
+  endExam,
+}: Props) {
   const { answers, changePage } = useContext(ExaminationContext);
   const loop = Array.from({ length: numOfQuestions });
   // const loop = Array.from({ length: 20 });
@@ -21,7 +25,7 @@ export default function ReviewBox({ numOfQuestions, cancelReview, endExam }: Pro
   return (
     <>
       <div className="fixed flex h-screen w-screen top-0 left-0 bg-primary/50 justify-center !z-50">
-        <div className="flex w-3/5 h-[calc(100vh-10rem)] bg-primary py-20 my-20 flex-col items-center rounded-xl bg-primary/95">
+        <div className="flex w-[90%] md:w-3/5 h-[calc(100vh-10rem)] bg-primary py-20 my-20 flex-col items-center rounded-xl bg-primary/95">
           <h1 className="text-3xl h-[10%]">Review & Submit</h1>
           <div className="flex w-full h-[10%]">
             <div className="flex flex-col justify-start ml-5 lg:ml-32">
@@ -38,7 +42,7 @@ export default function ReviewBox({ numOfQuestions, cancelReview, endExam }: Pro
             <div className="flex flex-col w-[90%]">
               {loop.map((_, index) => (
                 <div
-                  className={`flex justify-between items-center border-y p-3 hover:bg-secondary/30 ${answers[index + 1] ? 'bg-neutral/30' : ''}`}
+                  className={`flex justify-between items-center border-y p-3 hover:bg-secondary/30 ${answers[index + 1] ? "bg-neutral/30" : ""}`}
                   key={index}
                 >
                   <p>Question {index + 1}</p>

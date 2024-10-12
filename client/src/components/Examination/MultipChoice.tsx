@@ -1,8 +1,8 @@
 // File: Questions.jsx
-'use client';
-import { useContext, useState } from 'react';
-import { Question } from './Examination';
-import { ExaminationContext } from '@/contexts/ExaminationContext';
+"use client";
+import { useContext, useState } from "react";
+import { Question } from "./Examination";
+import { ExaminationContext } from "@/contexts/ExaminationContext";
 
 type Props = {
   questions: Question[];
@@ -10,7 +10,8 @@ type Props = {
 
 export default function MultipChoice({ questions }: Props) {
   // const [answers, setAnswers] = useState<{ [key: string]: string }>({});
-  const { page, numberOfQuestions, answers, handleChange } = useContext(ExaminationContext);
+  const { page, numberOfQuestions, answers, handleChange } =
+    useContext(ExaminationContext);
 
   // const handleChange = (event: React.ChangeEvent<HTMLInputElement>, key: string) => {
   //   setAnswers({
@@ -32,13 +33,16 @@ export default function MultipChoice({ questions }: Props) {
                   {item.question}
                 </h1>
                 {item.answers?.map((answer, answerIndex) => (
-                  <div key={answerIndex} className="flex justify-center items-center ml-14">
+                  <div
+                    key={answerIndex}
+                    className="flex justify-center items-center ml-14"
+                  >
                     <input
                       type="radio"
                       className="radio mr-5"
-                      name={item.id}
+                      name={item.id.toString()}
                       value={answer}
-                      onChange={(e) => handleChange(e, item.id)}
+                      onChange={(e) => handleChange(e, item.id.toString())}
                       checked={answers[item.id] === answer}
                     />
                     <label className="text-lg">{answer}</label>
@@ -46,7 +50,7 @@ export default function MultipChoice({ questions }: Props) {
                 ))}
               </div>
             </div>
-          ),
+          )
       )}
     </div>
   );
