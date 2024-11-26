@@ -4,6 +4,7 @@
 import { AuthContext } from "@/contexts/AuthContext";
 import { useContext, useEffect, useState } from "react";
 import { getApi } from "@/utils/axiosCofig";
+import { useRouter } from "next/navigation";
 
 interface UserData {
   fullname?: string;
@@ -21,6 +22,8 @@ interface UserData {
 export default function ProfileContent() {
   const [userData, setData] = useState<UserData>({});
   const { access_token } = useContext(AuthContext);
+  const router = useRouter();
+  if (!access_token) router.push("/login");
   useEffect(() => {
     async function getInfo() {
       if (!access_token) return;

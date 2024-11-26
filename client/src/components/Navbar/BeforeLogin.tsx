@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { Icon } from "../Icons";
+import { useContext } from "react";
+import { AuthContext } from "@/contexts/AuthContext";
 
 export default function TheAccountUnLogged() {
+  const { login } = useContext(AuthContext);
   return (
     <>
       <div className="flex-none gap-2">
@@ -23,7 +26,7 @@ export default function TheAccountUnLogged() {
                 <Link href={"/register"}>Sign up</Link>
               </li>
               <li>
-                <p>Try without account</p>
+                <button onClick={login}>Try without account</button>
               </li>
             </ul>
           </div>
